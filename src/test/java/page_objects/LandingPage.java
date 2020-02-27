@@ -1,6 +1,7 @@
 package page_objects;
 
 import org.openqa.selenium.By;
+import test_Scripts.DriverWrapper;
 
 public class LandingPage extends BagePage {
 
@@ -15,14 +16,17 @@ public class LandingPage extends BagePage {
     private By submitButton = By.xpath("//button[@name='websubmit']");
     private By genderError = By.xpath("//div[starts-with(text(),'Please choose a gender')]");
     private By messengerLink = By.linkText("Messenger");
-    private By redWarningButton=By.xpath("//div[@id='u_0_q']");
-    private By Month=By.id("month");
-    private By selectMonth=By.id( "month");
-
+    private By redWarningButton = By.xpath("//div[@id='u_0_q']");
+    private By Month = By.id("month");
+    private By selectMonth = By.id("month");
+    private By amazonSearchfield = By.xpath("//input[@id='twotabsearchtextbox']");
+    private By clickOnSearchFlied=By.xpath("//div[@class='nav-search-submit nav-sprite']//input[@class='nav-input']");
+    private By checkPrice = By.xpath("//span[@class='celwidget slot=SEARCH_RESULTS template=SEARCH_");
+    //private String price= DriverWrapper.getDriver().findElement(By.xpath("//span[@class='celwidget slot=SEARCH_RESULTS template=SEARCH_RESULTS widgetId=search-results index=0']//span[@class='a-price']"))).getText();
 
 
     //Methods
-    public void enterEmail(String value){
+    public void enterEmail(String value) {
         setValue(emailTextField, value);
     }
 
@@ -62,7 +66,7 @@ public class LandingPage extends BagePage {
         clickOn(messengerLink);
     }
 
-    public void ClickOnRedWarningButton(){
+    public void ClickOnRedWarningButton() {
         clickOn(redWarningButton);
     }
 
@@ -70,17 +74,26 @@ public class LandingPage extends BagePage {
         return isElementDisplayed(loginButton);
 
     }
-    public void clearMobileNumberOrEmail(){
+
+    public void clearMobileNumberOrEmail() {
         clearValue(mobileNumOrEmail);
     }
 
-    public void VerifyDuplicateMonth(){
+    public void VerifyDuplicateMonth() {
         VerifyDuplicateValue(selectMonth);
     }
-    public void SelectCurrentMonth(){
-        clickOn(selectMonth);
-   }
 
+    public void SelectCurrentMonth() {
+        clickOn(selectMonth);
+    }
+
+    public void setvalueOnScarchField(String value) {
+
+        setValue(amazonSearchfield, value);
+    }
+    public void ClickOnScarchField(){
+        clickOn(clickOnSearchFlied);
+    }
 
 }
 
